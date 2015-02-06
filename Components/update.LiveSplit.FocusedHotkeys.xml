@@ -1,0 +1,12 @@
+<updates>
+    <update version="1.0.0">
+        <files>
+            <file path="Components/LiveSplit.FocusedHotkeys.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>
+                Public release.
+            </change>
+        </changelog>
+    </update>
+</updates>
