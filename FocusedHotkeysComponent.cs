@@ -12,10 +12,7 @@ namespace LiveSplit.FocusedHotkeys
 {
     class FocusedHotkeysComponent : LogicComponent
     {
-        public override string ComponentName
-        {
-            get { return "Focused Hotkeys"; }
-        }
+        public override string ComponentName => "Focused Hotkeys";
 
         public FocusedHotkeysSettings Settings { get; set; }
 
@@ -29,21 +26,6 @@ namespace LiveSplit.FocusedHotkeys
         public FocusedHotkeysComponent(LiveSplitState state)
         {
             this.Settings = new FocusedHotkeysSettings();
-        }
-
-        public override XmlNode GetSettings(XmlDocument document)
-        {
-            return this.Settings.GetSettings(document);
-        }
-
-        public override Control GetSettingsControl(LayoutMode mode)
-        {
-            return this.Settings;
-        }
-
-        public override void SetSettings(XmlNode settings)
-        {
-            this.Settings.SetSettings(settings);
         }
 
         public override void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
@@ -75,9 +57,12 @@ namespace LiveSplit.FocusedHotkeys
             return title.ToString();
         }
 
-        public override void Dispose()
-        {
+        public override XmlNode GetSettings(XmlDocument document) => this.Settings.GetSettings(document);
 
-        }
+        public override Control GetSettingsControl(LayoutMode mode) => this.Settings;
+
+        public override void SetSettings(XmlNode settings) => this.Settings.SetSettings(settings);
+
+        public override void Dispose() { }
     }
 }

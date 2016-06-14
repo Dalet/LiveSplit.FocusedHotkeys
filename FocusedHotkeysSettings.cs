@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
@@ -33,7 +30,7 @@ namespace LiveSplit.FocusedHotkeys
             XmlElement settingsNode = doc.CreateElement("Settings");
 
             settingsNode.AppendChild(ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
-            
+
             XmlElement processesListNode = doc.CreateElement("ProcessesList");
             foreach (string processName in lbProcesses.Items)
             {

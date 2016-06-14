@@ -1,50 +1,26 @@
-﻿using System.Reflection;
+﻿using LiveSplit.Model;
 using LiveSplit.UI.Components;
 using System;
-using LiveSplit.Model;
+using System.Reflection;
 
 namespace LiveSplit.FocusedHotkeys
 {
     public class FocusedHotkeysFactory : IComponentFactory
     {
-        public string ComponentName
-        {
-            get { return "Focused Hotkeys"; }
-        }
+        public string ComponentName => "Focused Hotkeys";
 
-        public string Description
-        {
-            get { return "Enable global hotkeys only when specified programs have focus."; }
-        }
+        public string Description => "Enable global hotkeys only when specified programs have focus.";
 
-        public ComponentCategory Category
-        {
-            get { return ComponentCategory.Control; }
-        }
+        public ComponentCategory Category => ComponentCategory.Control;
 
-        public IComponent Create(LiveSplitState state)
-        {
-            return new FocusedHotkeysComponent(state);
-        }
+        public IComponent Create(LiveSplitState state) => new FocusedHotkeysComponent(state);
 
-        public string UpdateName
-        {
-            get { return this.ComponentName; }
-        }
+        public string UpdateName => this.ComponentName;
 
-        public string UpdateURL
-        {
-            get { return "https://raw.githubusercontent.com/Dalet/LiveSplit.FocusedHotkeys/master/"; }
-        }
+        public string UpdateURL => "https://raw.githubusercontent.com/Dalet/LiveSplit.FocusedHotkeys/master/";
 
-        public Version Version
-        {
-            get { return Assembly.GetExecutingAssembly().GetName().Version; }
-        }
+        public Version Version => Assembly.GetExecutingAssembly().GetName().Version;
 
-        public string XMLURL
-        {
-            get { return this.UpdateURL + "Components/update.LiveSplit.FocusedHotkeys.xml"; }
-        }
+        public string XMLURL => this.UpdateURL + "Components/update.LiveSplit.FocusedHotkeys.xml";
     }
 }

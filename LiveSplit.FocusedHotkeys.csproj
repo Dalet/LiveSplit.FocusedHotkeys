@@ -7,8 +7,9 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <AssemblyName>LiveSplit.FocusedHotkeys</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -28,13 +30,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>LiveSplit.FocusedHotkeys</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveSplit.Core">
-      <HintPath>..\..\..\..\Program Files (x86)\LiveSplit\LiveSplit.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files\LiveSplit\LiveSplit.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -47,11 +50,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UpdateManager">
-      <HintPath>..\..\..\..\Program Files (x86)\LiveSplit\UpdateManager.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files\LiveSplit\UpdateManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WinFormsColor">
-      <HintPath>..\..\..\..\Program Files (x86)\LiveSplit\WinFormsColor.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files\LiveSplit\Components\WinFormsColor.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
