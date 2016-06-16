@@ -14,6 +14,7 @@ namespace LiveSplit.FocusedHotkeys
     {
         public override string ComponentName => "Focused Hotkeys";
 
+        public bool Enabled { get; protected set; }
         public FocusedHotkeysSettings Settings { get; set; }
 
         [DllImport("user32.dll")]
@@ -23,25 +24,45 @@ namespace LiveSplit.FocusedHotkeys
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern int GetWindowText(int hWnd, StringBuilder title, int size);
 
+        bool _prevHotkeysEnabled;
+
         public FocusedHotkeysComponent(LiveSplitState state)
         {
-            this.Settings = new FocusedHotkeysSettings();
+            Settings = new FocusedHotkeysSettings();
+            Enabled = true;
+            _prevHotkeysEnabled = state.Settings.GlobalHotkeysEnabled;
         }
 
         public override void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
         {
             if (Settings.ProcessesList.Count > 0 || Settings.WindowTitlesList.Count > 0)
             {
-                Process activeProcess = GetActiveWindowProcess();
-                string activeWindowTitle = GetActiveWindowTitle();
-                if (Settings.ProcessesList.Contains(activeProcess.ProcessName) || Settings.WindowTitlesList.Contains(activeWindowTitle))
-                    state.Settings.GlobalHotkeysEnabled = true;
-                else
+                if (IsFocused())
+                {
+                    if (Settings.AllowFocusedToggle)
+                    {
+                        // toggle focused hotkeys along global hotkeys if they are manually toggled during focus
+                        if (state.Settings.GlobalHotkeysEnabled != _prevHotkeysEnabled)
+                            Enabled = state.Settings.GlobalHotkeysEnabled;
+                        else if (Enabled)
+                            state.Settings.GlobalHotkeysEnabled = true;
+                    }
+                    else
+                        state.Settings.GlobalHotkeysEnabled = Enabled = true; // reset Enabled to true if toggle setting is off
+                }
+                else // global hotkeys are never allowed without focus
                     state.Settings.GlobalHotkeysEnabled = false;
             }
+            _prevHotkeysEnabled = state.Settings.GlobalHotkeysEnabled;
         }
 
-        public static Process GetActiveWindowProcess()
+        bool IsFocused()
+        {
+            return Settings.ProcessesList.Contains(GetActiveWindowProcess().ProcessName)
+                || Settings.WindowTitlesList.Contains(GetActiveWindowTitle());
+        }
+
+        static Process GetActiveWindowProcess()
         {
             uint pid = 0;
             GetWindowThreadProcessId(GetForegroundWindow(), out pid);
@@ -49,7 +70,7 @@ namespace LiveSplit.FocusedHotkeys
             return Process.GetProcessById((int)pid);
         }
 
-        public static string GetActiveWindowTitle()
+        static string GetActiveWindowTitle()
         {
             StringBuilder title = new StringBuilder(256);
             GetWindowText((int)GetForegroundWindow(), title, 256);
@@ -57,11 +78,11 @@ namespace LiveSplit.FocusedHotkeys
             return title.ToString();
         }
 
-        public override XmlNode GetSettings(XmlDocument document) => this.Settings.GetSettings(document);
+        public override XmlNode GetSettings(XmlDocument document) => Settings.GetSettings(document);
 
-        public override Control GetSettingsControl(LayoutMode mode) => this.Settings;
+        public override Control GetSettingsControl(LayoutMode mode) => Settings;
 
-        public override void SetSettings(XmlNode settings) => this.Settings.SetSettings(settings);
+        public override void SetSettings(XmlNode settings) => Settings.SetSettings(settings);
 
         public override void Dispose() { }
     }

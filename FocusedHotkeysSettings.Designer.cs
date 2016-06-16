@@ -47,6 +47,7 @@
             this.lbWindowTitles = new System.Windows.Forms.ListBox();
             this.btnRemoveWindowTitle = new System.Windows.Forms.Button();
             this.lblBottomInfo = new System.Windows.Forms.Label();
+            this.chkAllowManualToggle = new System.Windows.Forms.CheckBox();
             this.tlpMain.SuspendLayout();
             this.gbProcesses.SuspendLayout();
             this.tlpProcessesList.SuspendLayout();
@@ -62,18 +63,20 @@
             this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpMain.ColumnCount = 1;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.gbProcesses, 0, 0);
-            this.tlpMain.Controls.Add(this.gbWindowTitles, 0, 1);
-            this.tlpMain.Controls.Add(this.lblBottomInfo, 0, 2);
+            this.tlpMain.Controls.Add(this.gbProcesses, 0, 1);
+            this.tlpMain.Controls.Add(this.gbWindowTitles, 0, 2);
+            this.tlpMain.Controls.Add(this.lblBottomInfo, 0, 3);
+            this.tlpMain.Controls.Add(this.chkAllowManualToggle, 0, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpMain.Location = new System.Drawing.Point(7, 7);
             this.tlpMain.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 3;
+            this.tlpMain.RowCount = 4;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(462, 474);
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.Size = new System.Drawing.Size(462, 471);
             this.tlpMain.TabIndex = 0;
             // 
             // gbProcesses
@@ -82,7 +85,7 @@
             this.gbProcesses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gbProcesses.Controls.Add(this.tlpProcessesList);
             this.gbProcesses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbProcesses.Location = new System.Drawing.Point(3, 3);
+            this.gbProcesses.Location = new System.Drawing.Point(3, 26);
             this.gbProcesses.Name = "gbProcesses";
             this.gbProcesses.Size = new System.Drawing.Size(456, 218);
             this.gbProcesses.TabIndex = 2;
@@ -210,9 +213,9 @@
             this.gbWindowTitles.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gbWindowTitles.Controls.Add(this.tlpWindowTitlesList);
             this.gbWindowTitles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbWindowTitles.Location = new System.Drawing.Point(3, 227);
+            this.gbWindowTitles.Location = new System.Drawing.Point(3, 250);
             this.gbWindowTitles.Name = "gbWindowTitles";
-            this.gbWindowTitles.Size = new System.Drawing.Size(456, 231);
+            this.gbWindowTitles.Size = new System.Drawing.Size(456, 205);
             this.gbWindowTitles.TabIndex = 3;
             this.gbWindowTitles.TabStop = false;
             this.gbWindowTitles.Text = "Window Titles";
@@ -235,7 +238,7 @@
             this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpWindowTitlesList.Size = new System.Drawing.Size(450, 212);
+            this.tlpWindowTitlesList.Size = new System.Drawing.Size(450, 186);
             this.tlpWindowTitlesList.TabIndex = 0;
             // 
             // tlpWindowTitlesListControls
@@ -302,7 +305,7 @@
             this.lbWindowTitles.Location = new System.Drawing.Point(3, 36);
             this.lbWindowTitles.Name = "lbWindowTitles";
             this.lbWindowTitles.ScrollAlwaysVisible = true;
-            this.lbWindowTitles.Size = new System.Drawing.Size(375, 173);
+            this.lbWindowTitles.Size = new System.Drawing.Size(375, 147);
             this.lbWindowTitles.TabIndex = 0;
             this.lbWindowTitles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbWindowTitles_KeyDown);
             // 
@@ -311,7 +314,7 @@
             this.btnRemoveWindowTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoveWindowTitle.AutoSize = true;
             this.btnRemoveWindowTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRemoveWindowTitle.Location = new System.Drawing.Point(384, 186);
+            this.btnRemoveWindowTitle.Location = new System.Drawing.Point(384, 160);
             this.btnRemoveWindowTitle.Name = "btnRemoveWindowTitle";
             this.btnRemoveWindowTitle.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnRemoveWindowTitle.Size = new System.Drawing.Size(63, 23);
@@ -323,12 +326,23 @@
             // lblBottomInfo
             // 
             this.lblBottomInfo.AutoSize = true;
-            this.lblBottomInfo.Location = new System.Drawing.Point(3, 461);
+            this.lblBottomInfo.Location = new System.Drawing.Point(3, 458);
             this.lblBottomInfo.Name = "lblBottomInfo";
             this.lblBottomInfo.Size = new System.Drawing.Size(140, 13);
             this.lblBottomInfo.TabIndex = 4;
             this.lblBottomInfo.Text = "Everything is case sensitive.";
             this.lblBottomInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chkAllowManualToggle
+            // 
+            this.chkAllowManualToggle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkAllowManualToggle.AutoSize = true;
+            this.chkAllowManualToggle.Location = new System.Drawing.Point(3, 3);
+            this.chkAllowManualToggle.Name = "chkAllowManualToggle";
+            this.chkAllowManualToggle.Size = new System.Drawing.Size(270, 17);
+            this.chkAllowManualToggle.TabIndex = 5;
+            this.chkAllowManualToggle.Text = "Allow manual Global Hotkeys toggling while in focus";
+            this.chkAllowManualToggle.UseVisualStyleBackColor = true;
             // 
             // FocusedHotkeysSettings
             // 
@@ -378,5 +392,6 @@
         private System.Windows.Forms.Button btnAddWindowTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbAllProcesses;
+        private System.Windows.Forms.CheckBox chkAllowManualToggle;
     }
 }

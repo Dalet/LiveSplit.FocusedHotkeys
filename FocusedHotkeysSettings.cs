@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveSplit.UI;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -13,35 +14,44 @@ namespace LiveSplit.FocusedHotkeys
     {
         public BindingList<string> ProcessesList { get; set; }
         public BindingList<string> WindowTitlesList { get; set; }
+        public bool AllowFocusedToggle { get; set; }
+
+        const bool DEFAULT_ALLOW_FOCUSED_TOGGLE = false;
 
         public FocusedHotkeysSettings()
         {
             InitializeComponent();
+
+            AllowFocusedToggle = DEFAULT_ALLOW_FOCUSED_TOGGLE;
 
             ProcessesList = new BindingList<string>();
             this.lbProcesses.DataSource = ProcessesList;
 
             WindowTitlesList = new BindingList<string>();
             this.lbWindowTitles.DataSource = WindowTitlesList;
+
+            chkAllowManualToggle.DataBindings.Add("Checked", this, nameof(AllowFocusedToggle), false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         public XmlNode GetSettings(XmlDocument doc)
         {
             XmlElement settingsNode = doc.CreateElement("Settings");
 
-            settingsNode.AppendChild(ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
+            settingsNode.AppendChild(SettingsHelper.ToElement(doc, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
+
+            settingsNode.AppendChild(SettingsHelper.ToElement(doc, "AllowFocusedToggle", AllowFocusedToggle));
 
             XmlElement processesListNode = doc.CreateElement("ProcessesList");
             foreach (string processName in lbProcesses.Items)
             {
-                processesListNode.AppendChild(ToElement(doc, "ProcessName", processName));
+                processesListNode.AppendChild(SettingsHelper.ToElement(doc, "ProcessName", processName));
             }
             settingsNode.AppendChild(processesListNode);
 
             XmlElement windowTitlesListNode = doc.CreateElement("WindowTitlesList");
             foreach (string windowTitle in lbWindowTitles.Items)
             {
-                windowTitlesListNode.AppendChild(ToElement(doc, "WindowTitle", windowTitle));
+                windowTitlesListNode.AppendChild(SettingsHelper.ToElement(doc, "WindowTitle", windowTitle));
             }
             settingsNode.AppendChild(windowTitlesListNode);
 
@@ -51,6 +61,8 @@ namespace LiveSplit.FocusedHotkeys
         public void SetSettings(XmlNode settings)
         {
             var element = (XmlElement)settings;
+
+            AllowFocusedToggle = SettingsHelper.ParseBool(settings["AllowFocusedToggle"], DEFAULT_ALLOW_FOCUSED_TOGGLE);
 
             XmlElement processesListNode = settings["ProcessesList"];
             if (processesListNode != null)
@@ -73,7 +85,7 @@ namespace LiveSplit.FocusedHotkeys
             }
         }
 
-        private void btnAddProcess_Click(object sender, EventArgs e)
+        void btnAddProcess_Click(object sender, EventArgs e)
         {
             string processName = cbAllProcesses.Text;
             if (!String.IsNullOrEmpty(processName) && !ProcessesList.Contains(processName) && !Regex.Match(processName, @"^\s+$").Success)
@@ -81,7 +93,7 @@ namespace LiveSplit.FocusedHotkeys
             cbAllProcesses.Text = String.Empty;
         }
 
-        private void btnAddWindowTitle_Click(object sender, EventArgs e)
+        void btnAddWindowTitle_Click(object sender, EventArgs e)
         {
             string title = cbAllWindowTitles.Text;
             if (!WindowTitlesList.Contains(title) && !String.IsNullOrEmpty(title) && !Regex.Match(title, @"^\s+$").Success)
@@ -89,31 +101,31 @@ namespace LiveSplit.FocusedHotkeys
             cbAllWindowTitles.Text = String.Empty;
         }
 
-        private void btnRemoveProcess_Click(object sender, EventArgs e)
+        void btnRemoveProcess_Click(object sender, EventArgs e)
         {
             if (lbProcesses.SelectedIndex >= 0)
                 ProcessesList.RemoveAt(lbProcesses.SelectedIndex);
         }
 
-        private void lbProcesses_KeyDown(object sender, KeyEventArgs e)
+        void lbProcesses_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Delete.Equals(e.KeyCode))
                 this.btnRemoveProcess.PerformClick();
         }
 
-        private void btnRemoveWindowTitle_Click(object sender, EventArgs e)
+        void btnRemoveWindowTitle_Click(object sender, EventArgs e)
         {
             if (lbWindowTitles.SelectedIndex >= 0)
                 WindowTitlesList.RemoveAt(lbWindowTitles.SelectedIndex);
         }
 
-        private void lbWindowTitles_KeyDown(object sender, KeyEventArgs e)
+        void lbWindowTitles_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Delete.Equals(e.KeyCode))
                 this.btnRemoveWindowTitle.PerformClick();
         }
 
-        private void cbAllProcesses_DropDown(object sender, EventArgs e)
+        void cbAllProcesses_DropDown(object sender, EventArgs e)
         {
             this.cbAllProcesses.Items.Clear();
             foreach (Process process in Process.GetProcesses())
@@ -123,13 +135,13 @@ namespace LiveSplit.FocusedHotkeys
             }
         }
 
-        private void cbAllWindowTitles_DropDown(object sender, EventArgs e)
+        void cbAllWindowTitles_DropDown(object sender, EventArgs e)
         {
             this.cbAllWindowTitles.Items.Clear();
             this.cbAllWindowTitles.Items.AddRange(GetOpenedWindowsTitles().ToArray());
         }
 
-        public static ArrayList GetOpenedWindowsTitles()
+        static ArrayList GetOpenedWindowsTitles()
         {
             ArrayList titles = new ArrayList();
 
@@ -139,21 +151,6 @@ namespace LiveSplit.FocusedHotkeys
                     titles.Add(process.MainWindowTitle);
             }
             return titles;
-        }
-
-        static bool ParseBool(XmlNode settings, string setting, bool default_ = false)
-        {
-            bool val;
-            return settings[setting] != null ?
-                (Boolean.TryParse(settings[setting].InnerText, out val) ? val : default_)
-                : default_;
-        }
-
-        static XmlElement ToElement<T>(XmlDocument document, string name, T value)
-        {
-            XmlElement str = document.CreateElement(name);
-            str.InnerText = value.ToString();
-            return str;
         }
     }
 }
