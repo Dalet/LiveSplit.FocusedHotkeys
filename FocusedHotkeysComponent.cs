@@ -16,7 +16,7 @@ namespace LiveSplit.FocusedHotkeys
         public override string ComponentName => "Focused Hotkeys";
 
         public bool Enabled { get; protected set; }
-        public FocusedHotkeysSettings Settings { get ; set; }
+        public FocusedHotkeysSettings Settings { get; set; }
 
         const int UPDATE_INTERVAL = 50; // minimum interval between updates in milliseconds
 
