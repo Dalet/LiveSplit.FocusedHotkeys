@@ -1,6 +1,8 @@
 # LiveSplit.FocusedHotkeys
 A [LiveSplit](http://livesplit.org/) component that enables global hotkeys only when specified programs have focus.
 
+![picture](http://i.imgur.com/rwek1iV.png)
+
 Installation
 -------
 1. Place LiveSplit.FocusedHotkeys.dll in the Components folder of LiveSplit. Restart LiveSplit if it was open.
