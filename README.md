@@ -5,6 +5,7 @@ A [LiveSplit](http://livesplit.org/) component that enables global hotkeys only 
 
 Installation
 -------
-1. Place LiveSplit.FocusedHotkeys.dll in the Components folder of LiveSplit. Restart LiveSplit if it was open.
-2. Add the component to your layout.
-3. Configure it in the layout settings.
+1. [Download Focused Hotkeys](https://github.com/Dalet/LiveSplit.FocusedHotkeys/releases)
+2. Place LiveSplit.FocusedHotkeys.dll in the Components folder of LiveSplit. Restart LiveSplit if it was open.
+3. Add the component to your layout.
+4. Configure it in the layout settings.
