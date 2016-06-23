@@ -3,6 +3,7 @@ using LiveSplit.UI;
 using LiveSplit.UI.Components;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -15,27 +16,35 @@ namespace LiveSplit.FocusedHotkeys
         public override string ComponentName => "Focused Hotkeys";
 
         public bool Enabled { get; protected set; }
-        public FocusedHotkeysSettings Settings { get; set; }
+        public FocusedHotkeysSettings Settings { get ; set; }
 
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetForegroundWindow();
-        [DllImport("user32.dll")]
-        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern int GetWindowText(int hWnd, StringBuilder title, int size);
+        const int UPDATE_INTERVAL = 50; // minimum interval between updates in milliseconds
 
         bool _prevHotkeysEnabled;
+        Stopwatch _stopWatch;
 
         public FocusedHotkeysComponent(LiveSplitState state)
         {
             Settings = new FocusedHotkeysSettings();
             Enabled = true;
             _prevHotkeysEnabled = state.Settings.GlobalHotkeysEnabled;
+            _stopWatch = Stopwatch.StartNew();
         }
+
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+        [DllImport("user32.dll")]
+        static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static extern int GetWindowText(int hWnd, StringBuilder title, int size);
 
         public override void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
         {
-            if (Settings.ProcessesList.Count > 0 || Settings.WindowTitlesList.Count > 0)
+            if (_stopWatch.ElapsedMilliseconds < UPDATE_INTERVAL)
+                return;
+            _stopWatch.Restart();
+
+            if (Settings.ProgramList.Count > 0)
             {
                 if (IsFocused())
                 {
@@ -58,8 +67,22 @@ namespace LiveSplit.FocusedHotkeys
 
         bool IsFocused()
         {
-            return Settings.ProcessesList.Contains(GetActiveWindowProcess().ProcessName)
-                || Settings.WindowTitlesList.Contains(GetActiveWindowTitle());
+            var processName = GetActiveWindowProcess().ProcessName;
+            var windowTitle = GetActiveWindowTitle();
+
+            if (!Settings.MatchCase)
+            {
+                processName = processName.ToLower();
+                windowTitle = windowTitle.ToLower();
+            }
+
+            return Settings.ProgramList.Any(s =>
+            {
+                string title = Settings.MatchCase ? s.Title : s.Title.ToLower();
+
+                return (s.Type == TitleType.ProcessName && title == processName)
+                    || (s.Type == TitleType.WindowTitle && title == windowTitle);
+            });
         }
 
         static Process GetActiveWindowProcess()

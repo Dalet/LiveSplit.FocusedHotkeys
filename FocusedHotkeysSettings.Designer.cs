@@ -28,370 +28,289 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.gbProcesses = new System.Windows.Forms.GroupBox();
-            this.tlpProcessesList = new System.Windows.Forms.TableLayoutPanel();
-            this.lbProcesses = new System.Windows.Forms.ListBox();
-            this.tlpProcessListControls = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddProcess = new System.Windows.Forms.Button();
-            this.lblProcessName = new System.Windows.Forms.Label();
-            this.btnRemoveProcess = new System.Windows.Forms.Button();
-            this.cbAllProcesses = new System.Windows.Forms.ComboBox();
-            this.lblProcessListInfo = new System.Windows.Forms.Label();
-            this.gbWindowTitles = new System.Windows.Forms.GroupBox();
-            this.tlpWindowTitlesList = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpWindowTitlesListControls = new System.Windows.Forms.TableLayoutPanel();
-            this.cbAllWindowTitles = new System.Windows.Forms.ComboBox();
-            this.btnAddWindowTitle = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbWindowTitles = new System.Windows.Forms.ListBox();
-            this.btnRemoveWindowTitle = new System.Windows.Forms.Button();
-            this.lblBottomInfo = new System.Windows.Forms.Label();
-            this.chkAllowManualToggle = new System.Windows.Forms.CheckBox();
-            this.tlpMain.SuspendLayout();
-            this.gbProcesses.SuspendLayout();
-            this.tlpProcessesList.SuspendLayout();
-            this.tlpProcessListControls.SuspendLayout();
-            this.gbWindowTitles.SuspendLayout();
-            this.tlpWindowTitlesList.SuspendLayout();
-            this.tlpWindowTitlesListControls.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // tlpMain
-            // 
-            this.tlpMain.AutoSize = true;
-            this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpMain.ColumnCount = 1;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.gbProcesses, 0, 1);
-            this.tlpMain.Controls.Add(this.gbWindowTitles, 0, 2);
-            this.tlpMain.Controls.Add(this.lblBottomInfo, 0, 3);
-            this.tlpMain.Controls.Add(this.chkAllowManualToggle, 0, 0);
-            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpMain.Location = new System.Drawing.Point(7, 7);
-            this.tlpMain.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 4;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(462, 471);
-            this.tlpMain.TabIndex = 0;
-            // 
-            // gbProcesses
-            // 
-            this.gbProcesses.AutoSize = true;
-            this.gbProcesses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gbProcesses.Controls.Add(this.tlpProcessesList);
-            this.gbProcesses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbProcesses.Location = new System.Drawing.Point(3, 26);
-            this.gbProcesses.Name = "gbProcesses";
-            this.gbProcesses.Size = new System.Drawing.Size(456, 218);
-            this.gbProcesses.TabIndex = 2;
-            this.gbProcesses.TabStop = false;
-            this.gbProcesses.Text = "Processes";
-            // 
-            // tlpProcessesList
-            // 
-            this.tlpProcessesList.AutoSize = true;
-            this.tlpProcessesList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpProcessesList.ColumnCount = 2;
-            this.tlpProcessesList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tlpProcessesList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tlpProcessesList.Controls.Add(this.lbProcesses, 0, 0);
-            this.tlpProcessesList.Controls.Add(this.tlpProcessListControls, 1, 0);
-            this.tlpProcessesList.Controls.Add(this.lblProcessListInfo, 0, 1);
-            this.tlpProcessesList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpProcessesList.Location = new System.Drawing.Point(3, 16);
-            this.tlpProcessesList.Name = "tlpProcessesList";
-            this.tlpProcessesList.RowCount = 2;
-            this.tlpProcessesList.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProcessesList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpProcessesList.Size = new System.Drawing.Size(450, 199);
-            this.tlpProcessesList.TabIndex = 0;
-            // 
-            // lbProcesses
-            // 
-            this.lbProcesses.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbProcesses.FormattingEnabled = true;
-            this.lbProcesses.Location = new System.Drawing.Point(3, 3);
-            this.lbProcesses.Name = "lbProcesses";
-            this.lbProcesses.ScrollAlwaysVisible = true;
-            this.lbProcesses.Size = new System.Drawing.Size(174, 173);
-            this.lbProcesses.TabIndex = 0;
-            this.lbProcesses.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProcesses_KeyDown);
-            // 
-            // tlpProcessListControls
-            // 
-            this.tlpProcessListControls.AutoSize = true;
-            this.tlpProcessListControls.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpProcessListControls.ColumnCount = 3;
-            this.tlpProcessListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpProcessListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpProcessListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpProcessListControls.Controls.Add(this.btnAddProcess, 2, 0);
-            this.tlpProcessListControls.Controls.Add(this.lblProcessName, 0, 0);
-            this.tlpProcessListControls.Controls.Add(this.btnRemoveProcess, 0, 1);
-            this.tlpProcessListControls.Controls.Add(this.cbAllProcesses, 1, 0);
-            this.tlpProcessListControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpProcessListControls.Location = new System.Drawing.Point(183, 3);
-            this.tlpProcessListControls.Name = "tlpProcessListControls";
-            this.tlpProcessListControls.RowCount = 2;
-            this.tlpProcessListControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProcessListControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpProcessListControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpProcessListControls.Size = new System.Drawing.Size(264, 173);
-            this.tlpProcessListControls.TabIndex = 1;
-            // 
-            // btnAddProcess
-            // 
-            this.btnAddProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddProcess.AutoSize = true;
-            this.btnAddProcess.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddProcess.Location = new System.Drawing.Point(221, 2);
-            this.btnAddProcess.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnAddProcess.Name = "btnAddProcess";
-            this.btnAddProcess.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.btnAddProcess.Size = new System.Drawing.Size(40, 23);
-            this.btnAddProcess.TabIndex = 1;
-            this.btnAddProcess.Text = "Add";
-            this.btnAddProcess.UseVisualStyleBackColor = true;
-            this.btnAddProcess.Click += new System.EventHandler(this.btnAddProcess_Click);
-            // 
-            // lblProcessName
-            // 
-            this.lblProcessName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblProcessName.AutoSize = true;
-            this.lblProcessName.Location = new System.Drawing.Point(0, 7);
-            this.lblProcessName.Margin = new System.Windows.Forms.Padding(0);
-            this.lblProcessName.Name = "lblProcessName";
-            this.lblProcessName.Size = new System.Drawing.Size(79, 13);
-            this.lblProcessName.TabIndex = 2;
-            this.lblProcessName.Text = "Process Name:";
-            // 
-            // btnRemoveProcess
-            // 
-            this.btnRemoveProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemoveProcess.AutoSize = true;
-            this.btnRemoveProcess.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRemoveProcess.Location = new System.Drawing.Point(3, 147);
-            this.btnRemoveProcess.Name = "btnRemoveProcess";
-            this.btnRemoveProcess.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnRemoveProcess.Size = new System.Drawing.Size(63, 23);
-            this.btnRemoveProcess.TabIndex = 3;
-            this.btnRemoveProcess.Text = "Remove";
-            this.btnRemoveProcess.UseVisualStyleBackColor = true;
-            this.btnRemoveProcess.Click += new System.EventHandler(this.btnRemoveProcess_Click);
-            // 
-            // cbAllProcesses
-            // 
-            this.cbAllProcesses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbAllProcesses.FormattingEnabled = true;
-            this.cbAllProcesses.Location = new System.Drawing.Point(82, 3);
-            this.cbAllProcesses.Name = "cbAllProcesses";
-            this.cbAllProcesses.Size = new System.Drawing.Size(133, 21);
-            this.cbAllProcesses.TabIndex = 4;
-            this.cbAllProcesses.DropDown += new System.EventHandler(this.cbAllProcesses_DropDown);
-            // 
-            // lblProcessListInfo
-            // 
-            this.lblProcessListInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProcessListInfo.AutoSize = true;
-            this.tlpProcessesList.SetColumnSpan(this.lblProcessListInfo, 2);
-            this.lblProcessListInfo.Location = new System.Drawing.Point(3, 182);
-            this.lblProcessListInfo.Name = "lblProcessListInfo";
-            this.lblProcessListInfo.Size = new System.Drawing.Size(444, 13);
-            this.lblProcessListInfo.TabIndex = 2;
-            this.lblProcessListInfo.Text = "Do not include the extension in the name. \"game.exe\" isn\'t valid, while \"game\" is" +
-    ".";
-            this.lblProcessListInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gbWindowTitles
-            // 
-            this.gbWindowTitles.AutoSize = true;
-            this.gbWindowTitles.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gbWindowTitles.Controls.Add(this.tlpWindowTitlesList);
-            this.gbWindowTitles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbWindowTitles.Location = new System.Drawing.Point(3, 250);
-            this.gbWindowTitles.Name = "gbWindowTitles";
-            this.gbWindowTitles.Size = new System.Drawing.Size(456, 205);
-            this.gbWindowTitles.TabIndex = 3;
-            this.gbWindowTitles.TabStop = false;
-            this.gbWindowTitles.Text = "Window Titles";
-            // 
-            // tlpWindowTitlesList
-            // 
-            this.tlpWindowTitlesList.AutoSize = true;
-            this.tlpWindowTitlesList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpWindowTitlesList.ColumnCount = 2;
-            this.tlpWindowTitlesList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWindowTitlesList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpWindowTitlesList.Controls.Add(this.tlpWindowTitlesListControls, 0, 0);
-            this.tlpWindowTitlesList.Controls.Add(this.lbWindowTitles, 0, 1);
-            this.tlpWindowTitlesList.Controls.Add(this.btnRemoveWindowTitle, 1, 1);
-            this.tlpWindowTitlesList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpWindowTitlesList.Location = new System.Drawing.Point(3, 16);
-            this.tlpWindowTitlesList.Name = "tlpWindowTitlesList";
-            this.tlpWindowTitlesList.RowCount = 2;
-            this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpWindowTitlesList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpWindowTitlesList.Size = new System.Drawing.Size(450, 186);
-            this.tlpWindowTitlesList.TabIndex = 0;
-            // 
-            // tlpWindowTitlesListControls
-            // 
-            this.tlpWindowTitlesListControls.AutoSize = true;
-            this.tlpWindowTitlesListControls.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpWindowTitlesListControls.ColumnCount = 3;
-            this.tlpWindowTitlesList.SetColumnSpan(this.tlpWindowTitlesListControls, 2);
-            this.tlpWindowTitlesListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpWindowTitlesListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpWindowTitlesListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpWindowTitlesListControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpWindowTitlesListControls.Controls.Add(this.cbAllWindowTitles, 1, 0);
-            this.tlpWindowTitlesListControls.Controls.Add(this.btnAddWindowTitle, 2, 0);
-            this.tlpWindowTitlesListControls.Controls.Add(this.label2, 0, 0);
-            this.tlpWindowTitlesListControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpWindowTitlesListControls.Location = new System.Drawing.Point(3, 3);
-            this.tlpWindowTitlesListControls.Name = "tlpWindowTitlesListControls";
-            this.tlpWindowTitlesListControls.RowCount = 1;
-            this.tlpWindowTitlesListControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpWindowTitlesListControls.Size = new System.Drawing.Size(444, 27);
-            this.tlpWindowTitlesListControls.TabIndex = 3;
-            // 
-            // cbAllWindowTitles
-            // 
-            this.cbAllWindowTitles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbAllWindowTitles.FormattingEnabled = true;
-            this.cbAllWindowTitles.Location = new System.Drawing.Point(33, 3);
-            this.cbAllWindowTitles.Name = "cbAllWindowTitles";
-            this.cbAllWindowTitles.Size = new System.Drawing.Size(362, 21);
-            this.cbAllWindowTitles.TabIndex = 3;
-            this.cbAllWindowTitles.DropDown += new System.EventHandler(this.cbAllWindowTitles_DropDown);
-            // 
-            // btnAddWindowTitle
-            // 
-            this.btnAddWindowTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddWindowTitle.AutoSize = true;
-            this.btnAddWindowTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddWindowTitle.Location = new System.Drawing.Point(401, 2);
-            this.btnAddWindowTitle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnAddWindowTitle.Name = "btnAddWindowTitle";
-            this.btnAddWindowTitle.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.btnAddWindowTitle.Size = new System.Drawing.Size(40, 23);
-            this.btnAddWindowTitle.TabIndex = 1;
-            this.btnAddWindowTitle.Text = "Add";
-            this.btnAddWindowTitle.UseVisualStyleBackColor = true;
-            this.btnAddWindowTitle.Click += new System.EventHandler(this.btnAddWindowTitle_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Title:";
-            // 
-            // lbWindowTitles
-            // 
-            this.lbWindowTitles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbWindowTitles.FormattingEnabled = true;
-            this.lbWindowTitles.Location = new System.Drawing.Point(3, 36);
-            this.lbWindowTitles.Name = "lbWindowTitles";
-            this.lbWindowTitles.ScrollAlwaysVisible = true;
-            this.lbWindowTitles.Size = new System.Drawing.Size(375, 147);
-            this.lbWindowTitles.TabIndex = 0;
-            this.lbWindowTitles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbWindowTitles_KeyDown);
-            // 
-            // btnRemoveWindowTitle
-            // 
-            this.btnRemoveWindowTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemoveWindowTitle.AutoSize = true;
-            this.btnRemoveWindowTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRemoveWindowTitle.Location = new System.Drawing.Point(384, 160);
-            this.btnRemoveWindowTitle.Name = "btnRemoveWindowTitle";
-            this.btnRemoveWindowTitle.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btnRemoveWindowTitle.Size = new System.Drawing.Size(63, 23);
-            this.btnRemoveWindowTitle.TabIndex = 2;
-            this.btnRemoveWindowTitle.Text = "Remove";
-            this.btnRemoveWindowTitle.UseVisualStyleBackColor = true;
-            this.btnRemoveWindowTitle.Click += new System.EventHandler(this.btnRemoveWindowTitle_Click);
-            // 
-            // lblBottomInfo
-            // 
-            this.lblBottomInfo.AutoSize = true;
-            this.lblBottomInfo.Location = new System.Drawing.Point(3, 458);
-            this.lblBottomInfo.Name = "lblBottomInfo";
-            this.lblBottomInfo.Size = new System.Drawing.Size(140, 13);
-            this.lblBottomInfo.TabIndex = 4;
-            this.lblBottomInfo.Text = "Everything is case sensitive.";
-            this.lblBottomInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // chkAllowManualToggle
-            // 
-            this.chkAllowManualToggle.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.chkAllowManualToggle.AutoSize = true;
-            this.chkAllowManualToggle.Location = new System.Drawing.Point(3, 3);
-            this.chkAllowManualToggle.Name = "chkAllowManualToggle";
-            this.chkAllowManualToggle.Size = new System.Drawing.Size(270, 17);
-            this.chkAllowManualToggle.TabIndex = 5;
-            this.chkAllowManualToggle.Text = "Allow manual Global Hotkeys toggling while in focus";
-            this.chkAllowManualToggle.UseVisualStyleBackColor = true;
-            // 
-            // FocusedHotkeysSettings
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tlpMain);
-            this.Name = "FocusedHotkeysSettings";
-            this.Padding = new System.Windows.Forms.Padding(7, 7, 7, 0);
-            this.Size = new System.Drawing.Size(476, 487);
-            this.tlpMain.ResumeLayout(false);
-            this.tlpMain.PerformLayout();
-            this.gbProcesses.ResumeLayout(false);
-            this.gbProcesses.PerformLayout();
-            this.tlpProcessesList.ResumeLayout(false);
-            this.tlpProcessesList.PerformLayout();
-            this.tlpProcessListControls.ResumeLayout(false);
-            this.tlpProcessListControls.PerformLayout();
-            this.gbWindowTitles.ResumeLayout(false);
-            this.gbWindowTitles.PerformLayout();
-            this.tlpWindowTitlesList.ResumeLayout(false);
-            this.tlpWindowTitlesList.PerformLayout();
-            this.tlpWindowTitlesListControls.ResumeLayout(false);
-            this.tlpWindowTitlesListControls.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+			this.tlpSettings = new System.Windows.Forms.TableLayoutPanel();
+			this.chkAllowManualToggle = new System.Windows.Forms.CheckBox();
+			this.chkMatchCase = new System.Windows.Forms.CheckBox();
+			this.gbPrograms = new System.Windows.Forms.GroupBox();
+			this.tlpProgramList = new System.Windows.Forms.TableLayoutPanel();
+			this.btnRemoveProgram = new System.Windows.Forms.Button();
+			this.tlpAddProgram = new System.Windows.Forms.TableLayoutPanel();
+			this.btnAddProgram = new System.Windows.Forms.Button();
+			this.cbProgramTitle = new System.Windows.Forms.ComboBox();
+			this.rbProcessName = new System.Windows.Forms.RadioButton();
+			this.rbWindowTitle = new System.Windows.Forms.RadioButton();
+			this.dgvPrograms = new System.Windows.Forms.DataGridView();
+			this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tlpMain.SuspendLayout();
+			this.tlpSettings.SuspendLayout();
+			this.gbPrograms.SuspendLayout();
+			this.tlpProgramList.SuspendLayout();
+			this.tlpAddProgram.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvPrograms)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// tlpMain
+			// 
+			this.tlpMain.AutoSize = true;
+			this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tlpMain.ColumnCount = 1;
+			this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpMain.Controls.Add(this.tlpSettings, 0, 0);
+			this.tlpMain.Controls.Add(this.gbPrograms, 0, 1);
+			this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpMain.Location = new System.Drawing.Point(7, 7);
+			this.tlpMain.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+			this.tlpMain.Name = "tlpMain";
+			this.tlpMain.RowCount = 2;
+			this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpMain.Size = new System.Drawing.Size(462, 516);
+			this.tlpMain.TabIndex = 0;
+			// 
+			// tlpSettings
+			// 
+			this.tlpSettings.AutoSize = true;
+			this.tlpSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tlpSettings.ColumnCount = 1;
+			this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpSettings.Controls.Add(this.chkAllowManualToggle, 0, 0);
+			this.tlpSettings.Controls.Add(this.chkMatchCase, 0, 1);
+			this.tlpSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpSettings.Location = new System.Drawing.Point(3, 3);
+			this.tlpSettings.Name = "tlpSettings";
+			this.tlpSettings.RowCount = 2;
+			this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+			this.tlpSettings.Size = new System.Drawing.Size(456, 52);
+			this.tlpSettings.TabIndex = 0;
+			// 
+			// chkAllowManualToggle
+			// 
+			this.chkAllowManualToggle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.chkAllowManualToggle.AutoSize = true;
+			this.chkAllowManualToggle.Location = new System.Drawing.Point(3, 4);
+			this.chkAllowManualToggle.Name = "chkAllowManualToggle";
+			this.chkAllowManualToggle.Size = new System.Drawing.Size(270, 17);
+			this.chkAllowManualToggle.TabIndex = 0;
+			this.chkAllowManualToggle.Text = "Allow manual Global Hotkeys toggling while in focus";
+			this.chkAllowManualToggle.UseVisualStyleBackColor = true;
+			// 
+			// chkMatchCase
+			// 
+			this.chkMatchCase.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.chkMatchCase.AutoSize = true;
+			this.chkMatchCase.Location = new System.Drawing.Point(3, 30);
+			this.chkMatchCase.Name = "chkMatchCase";
+			this.chkMatchCase.Size = new System.Drawing.Size(108, 17);
+			this.chkMatchCase.TabIndex = 1;
+			this.chkMatchCase.Text = "Match letter case";
+			this.chkMatchCase.UseVisualStyleBackColor = true;
+			// 
+			// gbPrograms
+			// 
+			this.gbPrograms.AutoSize = true;
+			this.gbPrograms.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.gbPrograms.Controls.Add(this.tlpProgramList);
+			this.gbPrograms.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbPrograms.Location = new System.Drawing.Point(3, 61);
+			this.gbPrograms.Name = "gbPrograms";
+			this.gbPrograms.Size = new System.Drawing.Size(456, 452);
+			this.gbPrograms.TabIndex = 1;
+			this.gbPrograms.TabStop = false;
+			this.gbPrograms.Text = "Focused Programs";
+			// 
+			// tlpProgramList
+			// 
+			this.tlpProgramList.AutoSize = true;
+			this.tlpProgramList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tlpProgramList.ColumnCount = 2;
+			this.tlpProgramList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpProgramList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpProgramList.Controls.Add(this.btnRemoveProgram, 1, 1);
+			this.tlpProgramList.Controls.Add(this.tlpAddProgram, 0, 0);
+			this.tlpProgramList.Controls.Add(this.dgvPrograms, 0, 1);
+			this.tlpProgramList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpProgramList.Location = new System.Drawing.Point(3, 16);
+			this.tlpProgramList.Name = "tlpProgramList";
+			this.tlpProgramList.RowCount = 2;
+			this.tlpProgramList.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpProgramList.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpProgramList.Size = new System.Drawing.Size(450, 433);
+			this.tlpProgramList.TabIndex = 0;
+			// 
+			// btnRemoveProgram
+			// 
+			this.btnRemoveProgram.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnRemoveProgram.BackgroundImage = global::LiveSplit.FocusedHotkeys.Properties.Resources.Remove;
+			this.btnRemoveProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnRemoveProgram.FlatAppearance.BorderSize = 0;
+			this.btnRemoveProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+			this.btnRemoveProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.btnRemoveProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnRemoveProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnRemoveProgram.Location = new System.Drawing.Point(418, 43);
+			this.btnRemoveProgram.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+			this.btnRemoveProgram.Name = "btnRemoveProgram";
+			this.btnRemoveProgram.Size = new System.Drawing.Size(32, 32);
+			this.btnRemoveProgram.TabIndex = 2;
+			this.btnRemoveProgram.UseVisualStyleBackColor = true;
+			this.btnRemoveProgram.Click += new System.EventHandler(this.btnRemoveProgram_Click);
+			// 
+			// tlpAddProgram
+			// 
+			this.tlpAddProgram.AutoSize = true;
+			this.tlpAddProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tlpAddProgram.ColumnCount = 4;
+			this.tlpProgramList.SetColumnSpan(this.tlpAddProgram, 2);
+			this.tlpAddProgram.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpAddProgram.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpAddProgram.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpAddProgram.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpAddProgram.Controls.Add(this.btnAddProgram, 3, 0);
+			this.tlpAddProgram.Controls.Add(this.cbProgramTitle, 2, 0);
+			this.tlpAddProgram.Controls.Add(this.rbProcessName, 0, 0);
+			this.tlpAddProgram.Controls.Add(this.rbWindowTitle, 1, 0);
+			this.tlpAddProgram.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpAddProgram.Location = new System.Drawing.Point(3, 3);
+			this.tlpAddProgram.Name = "tlpAddProgram";
+			this.tlpAddProgram.RowCount = 2;
+			this.tlpAddProgram.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpAddProgram.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpAddProgram.Size = new System.Drawing.Size(444, 27);
+			this.tlpAddProgram.TabIndex = 0;
+			// 
+			// btnAddProgram
+			// 
+			this.btnAddProgram.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btnAddProgram.AutoSize = true;
+			this.btnAddProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.btnAddProgram.Location = new System.Drawing.Point(401, 2);
+			this.btnAddProgram.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.btnAddProgram.Name = "btnAddProgram";
+			this.btnAddProgram.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.btnAddProgram.Size = new System.Drawing.Size(40, 23);
+			this.btnAddProgram.TabIndex = 3;
+			this.btnAddProgram.Text = "Add";
+			this.btnAddProgram.UseVisualStyleBackColor = true;
+			this.btnAddProgram.Click += new System.EventHandler(this.btnAddProgram_Click);
+			// 
+			// cbProgramTitle
+			// 
+			this.cbProgramTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.cbProgramTitle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.cbProgramTitle.FormattingEnabled = true;
+			this.cbProgramTitle.Location = new System.Drawing.Point(184, 3);
+			this.cbProgramTitle.Name = "cbProgramTitle";
+			this.cbProgramTitle.Size = new System.Drawing.Size(211, 21);
+			this.cbProgramTitle.TabIndex = 2;
+			this.cbProgramTitle.DropDown += new System.EventHandler(this.cbProgramTitle_DropDown);
+			// 
+			// rbProcessName
+			// 
+			this.rbProcessName.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.rbProcessName.AutoSize = true;
+			this.rbProcessName.Checked = true;
+			this.rbProcessName.Location = new System.Drawing.Point(0, 5);
+			this.rbProcessName.Margin = new System.Windows.Forms.Padding(0);
+			this.rbProcessName.Name = "rbProcessName";
+			this.rbProcessName.Size = new System.Drawing.Size(94, 17);
+			this.rbProcessName.TabIndex = 0;
+			this.rbProcessName.TabStop = true;
+			this.rbProcessName.Text = "Process Name";
+			this.rbProcessName.UseVisualStyleBackColor = true;
+			// 
+			// rbWindowTitle
+			// 
+			this.rbWindowTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.rbWindowTitle.AutoSize = true;
+			this.rbWindowTitle.Location = new System.Drawing.Point(94, 5);
+			this.rbWindowTitle.Margin = new System.Windows.Forms.Padding(0);
+			this.rbWindowTitle.Name = "rbWindowTitle";
+			this.rbWindowTitle.Size = new System.Drawing.Size(87, 17);
+			this.rbWindowTitle.TabIndex = 1;
+			this.rbWindowTitle.Text = "Window Title";
+			this.rbWindowTitle.UseVisualStyleBackColor = true;
+			// 
+			// dgvPrograms
+			// 
+			this.dgvPrograms.AllowUserToResizeColumns = false;
+			this.dgvPrograms.AllowUserToResizeRows = false;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.dgvPrograms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.dgvPrograms.BackgroundColor = System.Drawing.SystemColors.Control;
+			this.dgvPrograms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvPrograms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Title,
+            this.Type});
+			this.dgvPrograms.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvPrograms.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+			this.dgvPrograms.Location = new System.Drawing.Point(3, 36);
+			this.dgvPrograms.Name = "dgvPrograms";
+			this.dgvPrograms.RowHeadersVisible = false;
+			this.dgvPrograms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvPrograms.Size = new System.Drawing.Size(412, 394);
+			this.dgvPrograms.TabIndex = 1;
+			this.dgvPrograms.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrograms_CellClick);
+			// 
+			// Title
+			// 
+			this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Title.HeaderText = "Title";
+			this.Title.Name = "Title";
+			// 
+			// Type
+			// 
+			this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Type.HeaderText = "Type";
+			this.Type.MinimumWidth = 80;
+			this.Type.Name = "Type";
+			this.Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.Type.Width = 80;
+			// 
+			// FocusedHotkeysSettings
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.tlpMain);
+			this.Name = "FocusedHotkeysSettings";
+			this.Padding = new System.Windows.Forms.Padding(7);
+			this.Size = new System.Drawing.Size(476, 530);
+			this.tlpMain.ResumeLayout(false);
+			this.tlpMain.PerformLayout();
+			this.tlpSettings.ResumeLayout(false);
+			this.tlpSettings.PerformLayout();
+			this.gbPrograms.ResumeLayout(false);
+			this.gbPrograms.PerformLayout();
+			this.tlpProgramList.ResumeLayout(false);
+			this.tlpProgramList.PerformLayout();
+			this.tlpAddProgram.ResumeLayout(false);
+			this.tlpAddProgram.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvPrograms)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.GroupBox gbProcesses;
-        private System.Windows.Forms.TableLayoutPanel tlpProcessesList;
-        private System.Windows.Forms.ListBox lbProcesses;
-        private System.Windows.Forms.TableLayoutPanel tlpProcessListControls;
-        private System.Windows.Forms.Button btnAddProcess;
-        private System.Windows.Forms.Label lblProcessName;
-        private System.Windows.Forms.Button btnRemoveProcess;
-        private System.Windows.Forms.Label lblProcessListInfo;
-        private System.Windows.Forms.GroupBox gbWindowTitles;
-        private System.Windows.Forms.TableLayoutPanel tlpWindowTitlesList;
-        private System.Windows.Forms.ListBox lbWindowTitles;
-        private System.Windows.Forms.Button btnRemoveWindowTitle;
-        private System.Windows.Forms.Label lblBottomInfo;
-        private System.Windows.Forms.TableLayoutPanel tlpWindowTitlesListControls;
-        private System.Windows.Forms.ComboBox cbAllWindowTitles;
-        private System.Windows.Forms.Button btnAddWindowTitle;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbAllProcesses;
+        private System.Windows.Forms.GroupBox gbPrograms;
+        private System.Windows.Forms.TableLayoutPanel tlpProgramList;
+        private System.Windows.Forms.TableLayoutPanel tlpAddProgram;
+        private System.Windows.Forms.Button btnRemoveProgram;
+        private System.Windows.Forms.ComboBox cbProgramTitle;
         private System.Windows.Forms.CheckBox chkAllowManualToggle;
-    }
+		private System.Windows.Forms.DataGridView dgvPrograms;
+		private System.Windows.Forms.Button btnAddProgram;
+		private System.Windows.Forms.RadioButton rbProcessName;
+		private System.Windows.Forms.RadioButton rbWindowTitle;
+		private System.Windows.Forms.TableLayoutPanel tlpSettings;
+		private System.Windows.Forms.CheckBox chkMatchCase;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+	}
 }
